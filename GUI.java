@@ -146,45 +146,26 @@ public class GUI {
                     notice.setText("");
 
                     // Gauß-Elimination: Berechnung der Inversen
-                    if (COL == ROW) {
-                        Matrix.gaussJordan(matrix, inverseMatrix);
+                     Matrix.gaussJordan(matrix, inverseMatrix);
 
-                        for (int i = 0; i < ROW; i++) {
-                            for (int j = 0; j < COL; j++) {
-                                table.setValueAt(matrix[i][j], i, j);
-                            }
-                        }
+                     for (int i = 0; i < ROW; i++) {
+                         for (int j = 0; j < COL; j++) {
+                             table.setValueAt(matrix[i][j], i, j);
+                         }
+                     }
 
-                        for (int i = 0; i < ROW; i++) {
-                            for (int j = 0; j < ROW; j++) {
-                                inverseTable.setValueAt(inverseMatrix[i][j], i, j);
-                            }
-                        }
+                     for (int i = 0; i < ROW; i++) {
+                         for (int j = 0; j < ROW; j++) {
+                             inverseTable.setValueAt(inverseMatrix[i][j], i, j);
+                         }
+                     }
 
-                        if (!run) {
-                            panel.removeAll();
-                            panel.repaint();
-                            new GUI();
-                        }
-                        run = false;
-                    } else {
-                        notice.setText("Nur quadratische Matrizen!");
-                        /*
-                        Matrix.gaussJordan(matrix, inverseMatrix);
-
-                        for (int i = 0; i < ROW; i++) {
-                            for (int j = 0; j < COL; j++) {
-                                table.setValueAt(matrix[i][j], i, j);
-                            }
-                        }
-
-                        for (int i = 0; i < ROW; i++) {
-                            for (int j = 0; j < ROW; j++) {
-                                inverseTable.setValueAt(matrix[i][j], i, j);
-                            }
-                        }
-                        */
-                    }
+                     if (!run) {
+                         panel.removeAll();
+                         panel.repaint();
+                         new GUI();
+                     }
+                     run = false;
                 } catch (NumberFormatException f) {
                     notice.setText("Richtig ausfüllen!");
                 }
